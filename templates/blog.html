@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff7f50, #1e90ff, #ff4500, #32cd32);
+            background-size: 400% 400%;
+            animation: gradient-bg 8s infinite;
+        }
+        @keyframes gradient-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu">
+
+    <h1>MENU</h1>
+
+    <ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="http://127.0.0.1:8000/create/">createCountries</a></li>
+
+  <li><a href="http://127.0.0.1:8000/area/">Areas</a></li>
+  <li><a href="#contact">Regions</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+</div>
+
+    <a href="http://127.0.0.1:8000/create/">
+        <button>Create Blog</button>
+    </a>
+
+    {% for blog in blogs %}
+    <div class="blog-wrapper">
+        <div class="blog-card">
+            <div class="card-img">
+                <h2>{{ blog.title }}</h2>
+            </div>
+
+            <div class="card-details">
+                <span><i class="fa fa-calendar"></i> {{ blog.created_at }}</span>
+                <span><i class="fa fa-heart"></i> {{ blog.likes }}</span>
+            </div>
+
+            <div class="card-text">
+                <p>{{ blog.body }}</p>
+            </div>
+
+            <div class="read-more">
+                <a href="http://127.0.0.1:8000/update/{{ blog.pk }}">Обновить</a>
+            </div>
+
+            <div class="read-more">
+                <a href="http://127.0.0.1:8000/delete/{{ blog.pk }}">Удалить</a>
+            </div>
+
+
+
+             <div class="read-more">
+                <a href="http://127.0.0.1:8000/comment/{{blog.pk}}/">comment</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

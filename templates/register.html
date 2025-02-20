@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{% static 'register/style.css' %}">
+</head>
+<body>
+  <div class="login_form">
+    <form method="POST" action="">
+      {% csrf_token %}
+      <h3>Register</h3>
+
+      <!-- Login option separator -->
+      <p class="separator"><span>or</span></p>
+
+      <!-- Username input -->
+      <div class="input_box">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Введите username" value="{{ username|default:'' }}" required />
+      </div>
+
+      <!-- First name input -->
+      <div class="input_box">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" placeholder="Введите имя" value="{{ first_name|default:'' }}" required />
+      </div>
+
+      <!-- Last name input -->
+      <div class="input_box">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Введите фамилию" value="{{ last_name|default:'' }}" required />
+      </div>
+
+      <!-- Email input -->
+      <div class="input_box">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Введите email" value="{{ email|default:'' }}" required />
+      </div>
+
+      <!-- Password input -->
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">Password</label>
+        </div>
+        <input type="password" id="password" name="password" placeholder="Введите пароль" required />
+      </div>
+
+      <!-- is_active checkbox -->
+      <div class="policy">
+        <input type="checkbox" name="is_active" value="true" {% if is_active %}checked{% endif %}> is_active
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit">Register</button>
+
+    </form>
+  </div>
+</body>
+</html>
