@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['*']
 SECRET_KEY = os.getenv('SECRET_KEY')
 # Application definition
 
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -120,6 +122,14 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://postgres23322.onrender.com",
+    "http://localhost",
+    "http://127.0.0.1",
+]
 
 
 # Static files (CSS, JavaScript, Images)
