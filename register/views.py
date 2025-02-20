@@ -50,7 +50,7 @@ class RegisterView(TemplateView):
             user.set_password(form.cleaned_data['password'])
 
             form.save()
-            return redirect('http://127.0.0.1:8000/blog/')
+            return redirect('https://postgres23322.onrender.com/blog/')
 
         return HttpResponse('register error'+str(form.errors))
 
@@ -72,7 +72,7 @@ class LoginView(TemplateView):
             return HttpResponse('invalid email')
 
         if user.check_password(password):
-            return redirect('http://127.0.0.1:8000/blog/')
+            return redirect('https://postgres23322.onrender.com/blog/')
 
         else:
             return HttpResponse('invalid  password')
