@@ -69,10 +69,10 @@ class LoginView(TemplateView):
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            return HttpResponse('invalid email or password')
+            return HttpResponse('invalid email')
 
         if user.check_password(password):
             return redirect('http://127.0.0.1:8000/blog/')
 
         else:
-            return HttpResponse('invalid email or password')
+            return HttpResponse('invalid  password')
