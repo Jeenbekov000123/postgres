@@ -123,7 +123,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://postgres23322.onrender.com',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://postgres23322.onrender.com",
